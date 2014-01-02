@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.korawit.mashup.LocateMeActivity" >
+    
+    <item android:id="@+id/action_current_location"
+        android:title="@string/action_current_location"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+
+    <item android:id="@+id/action_track_location"
+        android:title="@string/action_track_location"
+        android:orderInCategory="200"
+        android:showAsAction="never" />
+</menu>

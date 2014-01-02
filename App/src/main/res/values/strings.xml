@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Locate Me</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_current_location">Get Location</string>
+    <string name="action_track_location">Track Location</string>
+    <string name="action_settings">Settings</string>
+    <string name="label_location">Current Location</string>
+
+</resources>
