@@ -1,4 +1,4 @@
-package com.korawit.mashup;
+package com.korawit.component;
 
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -122,14 +122,18 @@ public class LocateMeActivity extends Activity implements
 
         //locationClient.requestLocationUpdates(locationRequest, this);
 
+
         IntentFilter filter = new IntentFilter(broadcast_filter);
 
-        LocationUpdateReceiver receiver = new LocationUpdateReceiver();
+        LocationUpdateReceiver locationReceiver = new LocationUpdateReceiver();
 
-        registerReceiver(receiver, filter);
-        Intent intent = new Intent(this, LocationUpdateReceiver.class);
+        registerReceiver(locationReceiver, filter);
+
+        Intent intent = new Intent(broadcast_filter);
         PendingIntent locationUpdateIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         locationClient.requestLocationUpdates(locationRequest, locationUpdateIntent);
+
+        Log.d(TAG,"TrackLocation");
 
     }
 

@@ -1,17 +1,22 @@
-package com.korawit.mashup;
+package com.korawit.component;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.location.LocationClient;
 
 public class LocationUpdateReceiver extends BroadcastReceiver {
 
+    private static final String TAG = "LocationUpdateReceiver";
+
     @Override
     public void onReceive(Context context, Intent intent) {
+
+        Log.d(TAG, "onReceive");
 
         String locationKey = LocationClient.KEY_LOCATION_CHANGED;
 
