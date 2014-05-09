@@ -19,10 +19,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="0,0"
         android:id="@+id/txtCurrentLocation"
         android:singleLine="true"
         android:textColor="#0e18a6"
         android:textAlignment="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Tracking Interval (Second)"
+        android:id="@+id/textView"
+        android:paddingTop="20dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editTextInterval"
+        android:text="10" />
 
 </LinearLayout>

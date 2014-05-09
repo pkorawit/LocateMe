@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,8 +31,7 @@ public class LocateMeActivity extends Activity implements
     Location currentLocation;
     LocationRequest locationRequest;
 
-    private static final long UPDATE_INTERVAL = 15000;
-    private static final long FASTEST_INTERVAL = 10000;
+    private static final long FASTEST_INTERVAL = 5000;
     private static final String broadcast_filter = "LOCATION_UPDATED";
 
     @Override
@@ -115,9 +115,12 @@ public class LocateMeActivity extends Activity implements
 
     public void TrackLocation(){
 
+        EditText edtInterval = (EditText) findViewById(R.id.editTextInterval);
+        int interval = Integer.parseInt(edtInterval.getText().toString());
+
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        locationRequest.setInterval(UPDATE_INTERVAL);
+        locationRequest.setInterval(interval * 1000);
         locationRequest.setFastestInterval(FASTEST_INTERVAL);
 
         //locationClient.requestLocationUpdates(locationRequest, this);
@@ -132,8 +135,6 @@ public class LocateMeActivity extends Activity implements
         Intent intent = new Intent(broadcast_filter);
         PendingIntent locationUpdateIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         locationClient.requestLocationUpdates(locationRequest, locationUpdateIntent);
-
-        Log.d(TAG,"TrackLocation");
 
     }
 
